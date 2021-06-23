@@ -1,7 +1,7 @@
 name: Upload
 slug: upload
 version: dev
-arch: [amd64]
+arch: [amd64, aarch64]
 description: Test uploads
 stage: experimental
 ingress: true
