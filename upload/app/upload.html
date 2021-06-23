@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <style>
+            @media (prefers-color-scheme: dark) {
+                html {
+                    color: white
+                }
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 200px;
+                margin: auto;
+                padding: 200px;
+            }
+            input {
+                margin: 8px 0;
+            }
+        </style>
+    </head>
+   <body>
+      <form action = "./uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>   
+   </body>
+</html>

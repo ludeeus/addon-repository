@@ -1,0 +1,8 @@
+name: Upload
+slug: upload
+version: dev
+arch: [amd64]
+description: Test uploads
+stage: experimental
+ingress: true
+panel_icon: "mdi:test-tube"
