@@ -3,14 +3,15 @@
 	"context": "..",
 	"dockerFile": "Dockerfile",
 	"appPort": ["7123:8123", "7357:4357"],
-    "postStartCommand": "service docker start",
+    "postStartCommand": ["find . -name requirements.txt -exec python3 -m pip install -r {} \;"," && service docker start"],
 	"runArgs": ["-e", "GIT_EDITOR=code --wait", "--privileged"],
 	"containerEnv": {
 		"WORKSPACE_DIRECTORY": "${containerWorkspaceFolder}"
 	},
 	"extensions": [
 		"timonwong.shellcheck",
-		"esbenp.prettier-vscode"
+		"esbenp.prettier-vscode",
+		"ms-python.vscode-pylance"
 	],
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash"

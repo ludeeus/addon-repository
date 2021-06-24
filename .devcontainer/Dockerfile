@@ -15,7 +15,8 @@ RUN \
         dbus \
         network-manager \
         libpulse0 \
-        xz-utils
+        xz-utils \
+        python3-pip
 
 # Install docker
 RUN apt-get update && apt-get install -y --no-install-recommends \

@@ -1,0 +1,8 @@
+name: Brotli
+slug: brotli
+version: dev
+arch: [amd64, aarch64]
+description: Test brotli compression
+stage: experimental
+ingress: true
+panel_icon: "mdi:test-tube"
