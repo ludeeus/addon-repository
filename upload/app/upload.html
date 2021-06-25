@@ -10,8 +10,7 @@
                 display: flex;
                 flex-direction: column;
                 width: 450px;
-                margin: auto;
-                padding: 200px;
+                padding: 32px;
             }
             input {
                 margin: 8px 0;
@@ -36,7 +35,6 @@
             }
 
             function progressHandler(event) {
-                console.log(event)
                 _("loaded_n_total").innerHTML = `Uploaded ${event.loaded} bytes of ${event.total}`;
                 var percent = (event.loaded / event.total) * 100;
                 _("progressBar").value = Math.round(percent);
