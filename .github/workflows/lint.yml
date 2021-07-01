@@ -18,9 +18,9 @@ jobs:
       addons: ${{ steps.addons.outputs.addons }}
     steps:
       - name: ⤵️ Check out code from GitHub
-        uses: actions/checkout@
+        uses: actions/checkout@v2
         
-      - name: Find add-on directories
+      - name: 🔍 Find add-on directories
         id: addons
         run: |
           declare -a addons
