@@ -23,13 +23,12 @@ jobs:
       - name: 🔍 Find add-on directories
         id: addons
         run: |
-          declare -a found_addons
+          declare -a addons
           for addon in $(find ./ -name config.yaml | cut -d "/" -f2 | sort -u); do
-            found_addons+=("\"${addon}\",");
+            addons+=("$addon");
           done
-          addons=$(echo ${found_addons[@]} | rev | cut -c 2- | rev)
-          echo "Add-ons found: ${addons}"
-          echo "::set-output name=addons::${addons}"
+          echo "Add-ons found: ${addons[@]}"
+          echo "::set-output name=addons::${addons[@]}"
 
 
   lint:
@@ -38,7 +37,7 @@ jobs:
     needs: find
     strategy:
       matrix: 
-        path: ${{ fromJson(needs.find.outputs.addons) }}
+        path: ${{ fromJson(needs.init.outputs.addons) }}
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v2
