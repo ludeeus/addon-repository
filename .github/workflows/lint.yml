@@ -37,7 +37,7 @@ jobs:
     needs: find
     strategy:
       matrix: 
-        path: ${{ fromJson(needs.init.outputs.addons) }}
+        path: ${{ fromJson(needs.find.outputs.addons) }}
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v2
