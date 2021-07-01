@@ -3,7 +3,8 @@
 	"context": "..",
 	"dockerFile": "Dockerfile",
 	"appPort": ["7123:8123", "7357:4357"],
-    "postStartCommand": ["find . -name requirements.txt -exec python3 -m pip install -r {} \;"," && service docker start"],
+    "postStartCommand": "service docker start",
+	"postAttachCommand": "bash ./setup.sh",
 	"runArgs": ["-e", "GIT_EDITOR=code --wait", "--privileged"],
 	"containerEnv": {
 		"WORKSPACE_DIRECTORY": "${containerWorkspaceFolder}"
