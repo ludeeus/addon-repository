@@ -6,3 +6,4 @@ description: Test brotli compression
 stage: experimental
 ingress: true
 panel_icon: "mdi:test-tube"
+panel_admin: false
