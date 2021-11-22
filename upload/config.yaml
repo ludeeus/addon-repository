@@ -7,3 +7,4 @@ stage: experimental
 ingress: true
 ingress_stream: true
 panel_icon: "mdi:test-tube"
+panel_admin: false
