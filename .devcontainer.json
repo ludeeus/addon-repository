@@ -1,0 +1,39 @@
+{
+	"name": "ludeeus/addon-repository",
+	"image": "ghcr.io/home-assistant/devcontainer:addons",
+	"forwardPorts": [
+		"7123:8123",
+		"7357:4357"
+	],
+	"postStartCommand": "bash devcontainer_bootstrap",
+	"runArgs": [
+		"--privileged"
+	],
+	"mounts": [
+		"type=volume,target=/var/lib/docker"
+	],
+	"containerEnv": {
+		"WORKSPACE_DIRECTORY": "${containerWorkspaceFolder}",
+		"GIT_EDITOR": "code --wait"
+	},
+	"remoteUser": "root",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"timonwong.shellcheck",
+				"esbenp.prettier-vscode"
+			],
+			"settings": {
+				"terminal.integrated.profiles.linux": {
+					"zsh": {
+						"path": "/usr/bin/zsh"
+					}
+				},
+				"editor.formatOnPaste": false,
+				"editor.formatOnSave": true,
+				"editor.formatOnType": true,
+				"files.trimTrailingWhitespace": true
+			}
+		}
+	}
+}
