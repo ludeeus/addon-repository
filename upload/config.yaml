@@ -4,6 +4,7 @@ version: dev
 arch: [amd64, aarch64]
 description: Test uploads
 stage: experimental
+init: false
 ingress: true
 ingress_stream: true
 panel_icon: "mdi:test-tube"

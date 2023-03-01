@@ -4,6 +4,7 @@ version: dev
 arch: [amd64, aarch64]
 description: Test brotli compression
 stage: experimental
+init: false
 ingress: true
 panel_icon: "mdi:test-tube"
 panel_admin: false
