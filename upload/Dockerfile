@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-# Copy data for add-on
+# Copy data for app
 COPY app /app
 COPY requirements.txt requirements.txt 
 

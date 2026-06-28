@@ -14,46 +14,46 @@ permissions: {}
 
 jobs:
   find:
-    name: Find add-ons
+    name: Find apps
     runs-on: ubuntu-latest
     permissions:
       contents: read
     outputs:
-      addons: ${{ steps.addons.outputs.addons }}
+      apps: ${{ steps.apps.outputs.apps }}
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
-      - name: 🔍 Find add-on directories
-        id: addons
+      - name: 🔍 Find app directories
+        id: apps
         run: |
-          declare -a found_addons
-          for addon in $(find ./ -name config.yaml | cut -d "/" -f2 | sort -u); do
-            found_addons+=("\"${addon}\",");
+          declare -a found_apps
+          for app in $(find ./ -name config.yaml | cut -d "/" -f2 | sort -u); do
+            found_apps+=("\"${app}\",");
           done
-          addons=$(echo ${found_addons[@]} | rev | cut -c 2- | rev)
-          echo "Add-ons found: ${addons}"
-          echo "addons=[${addons}]" >> "$GITHUB_OUTPUT"
+          apps=$(echo ${found_apps[@]} | rev | cut -c 2- | rev)
+          echo "Apps found: ${apps}"
+          echo "apps=[${apps}]" >> "$GITHUB_OUTPUT"
 
 
   lint:
-    name: Lint add-on ${{ matrix.path }}
+    name: Lint app ${{ matrix.path }}
     runs-on: ubuntu-latest
     needs: find
     permissions:
       contents: read
     strategy:
       matrix:
-        path: ${{ fromJson(needs.find.outputs.addons) }}
+        path: ${{ fromJson(needs.find.outputs.apps) }}
     steps:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
-      - name: 🚀 Run Home Assistant Add-on Lint
+      - name: 🚀 Run Home Assistant App Lint
         uses: frenck/action-addon-linter@f995494fd84fae6310d23617e66d0e37de4f14eb # v2.21.0
         with:
           path: "./${{ matrix.path }}"
