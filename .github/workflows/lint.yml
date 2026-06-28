@@ -29,7 +29,7 @@ jobs:
           done
           addons=$(echo ${found_addons[@]} | rev | cut -c 2- | rev)
           echo "Add-ons found: ${addons}"
-          echo "::set-output name=addons::[${addons}]"
+          echo "addons=[${addons}]" >> "$GITHUB_OUTPUT"
 
 
   lint:
