@@ -12,7 +12,9 @@ with the `manager` role.
 
 ## Usage
 
-SSH into the node over Tailscale (default hostname `ha-cli`), then run `ha`
-commands, e.g. `ha core info`, `ha addons`, `ha supervisor logs`.
+SSH into the node over Tailscale, then run `ha` commands, e.g. `ha core info`,
+`ha addons`, `ha supervisor logs`.
 
-The hostname is an optional config option (defaults to `ha-cli`).
+The hostname is an optional config option. When unset it defaults to
+`ha-cli-<random>` (a 7-char suffix generated once and kept stable across
+restarts); check the **Log** tab for the exact name.
