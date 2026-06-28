@@ -1,0 +1,14 @@
+name: Tailscale CLI
+slug: tailscale_cli
+version: dev
+arch:
+  - amd64
+  - aarch64
+description: Test app - Tailscale SSH access with the Home Assistant CLI
+stage: experimental
+init: false
+startup: services
+hassio_api: true
+hassio_role: manager
+schema:
+  hostname: str?
