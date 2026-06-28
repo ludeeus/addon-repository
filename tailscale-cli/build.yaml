@@ -4,5 +4,7 @@ build_from:
   # renovate: datasource=docker depName=ghcr.io/home-assistant/aarch64-base
   aarch64: ghcr.io/home-assistant/aarch64-base:3.24
 args:
+  # renovate: datasource=github-releases depName=tailscale/tailscale
+  TAILSCALE_VERSION: "v1.98.5"
   # renovate: datasource=github-releases depName=home-assistant/cli
   HA_CLI_VERSION: "v5.2.0"
